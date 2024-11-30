@@ -6,6 +6,7 @@ opencv-python
 ultralytics
 requests
 folium
+pyttsx3
 av
 geojson
 gTTS
