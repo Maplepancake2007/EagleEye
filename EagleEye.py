@@ -14,7 +14,6 @@ from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share
 import pygame
 import time
 import streamlit as st
-import cv2
 import av
 import requests
 import threading
