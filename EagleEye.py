@@ -7,7 +7,7 @@ import geojson
 from geojson import dump
 import streamlit.components.v1 as stc
 import pyttsx3
-import threading
+import cv2
 from streamlit.components.v1 import html
 from streamlit_javascript import st_javascript
 from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
@@ -15,7 +15,6 @@ import pygame
 import time
 import streamlit as st
 import requests
-import threading
 from ultralytics import YOLO
 from streamlit_webrtc import webrtc_streamer
 
