@@ -10,5 +10,5 @@ pygame
 av
 geojson
 gTTS
-opencv-python
+cv2
 streamlit-folium
