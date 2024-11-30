@@ -7,6 +7,7 @@ ultralytics
 requests
 folium
 pyttsx3
+pygame
 av
 geojson
 gTTS
