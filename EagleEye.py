@@ -46,37 +46,37 @@ def main():
 
 
 def car_detection():
-     while True:
-          model = YOLO("yolov8n.pt")
+
+     model = YOLO("yolov8n.pt")
      
-          def callback(frame):
-               img = frame.to_ndarray(format = 'bgr24')
+     def callback(frame):
+          img = frame.to_ndarray(format = 'bgr24')
                
      
-               results = model(
+          results = model(
                     img,
                     classes=2,
                     conf = 0.5
                )
-               alerts = results[0]
-               for alert in alerts:
-                    cls = int(alert.boxes.cls)
-                    if cls == 2:
-                         f = BytesIO()
-                         gTTS(text = "車体を検知しました", lang = "ja").write_to_fp(f)
-                         f.seek(0)
-                         pygame.mixer.init()
-                         pygame.mixer.music.load(f)
-                         pygame.mixer.music.play(1)
-                         time.sleep(5)
-                         continue
-               time.sleep(2)
-          webrtc_streamer(
-          key="example",
-          async_transform=True,
-          media_stream_constraints={"video": True, "audio": False},
-          video_frame_callback=callback
-          )
+          alerts = results[0]
+          for alert in alerts:
+               cls = int(alert.boxes.cls)
+               if cls == 2:
+                    f = BytesIO()
+                    gTTS(text = "車体を検知しました", lang = "ja").write_to_fp(f)
+                    f.seek(0)
+                    pygame.mixer.init()
+                    pygame.mixer.music.load(f)
+                    pygame.mixer.music.play(1)
+                    time.sleep(5)
+                    continue
+          time.sleep(2)
+     webrtc_streamer(
+     key="example",
+     async_transform=True,
+     media_stream_constraints={"video": True, "audio": False},
+     video_frame_callback=callback
+     )
 
 
 
