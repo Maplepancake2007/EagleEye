@@ -10,5 +10,5 @@ pygame
 av
 geojson
 gTTS
-opencv-python-headless==4.5.4.60
+opencv-python-headless
 streamlit-folium
