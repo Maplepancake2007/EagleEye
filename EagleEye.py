@@ -13,6 +13,7 @@ from streamlit_javascript import st_javascript
 from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
 import pygame
 import time
+import av
 import streamlit as st
 import requests
 from ultralytics import YOLO
