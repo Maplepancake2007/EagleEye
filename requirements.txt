@@ -2,7 +2,7 @@ streamlit_folium
 streamlit-javascript
 streamlit-js-eval
 streamlit-webrtc
-opencv-contrib-python
+opencv
 ultralytics
 requests
 folium
