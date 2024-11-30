@@ -3,6 +3,7 @@ FROM python:3.12.0
 WORKDIR /app
 
 COPY requiments.txt .
+RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN apt update\
     apt install -y libopencv-dev
 
