@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY requiments.txt .
 RUN apt-get -y update && apt-get -y upgrade && \
-    apt-get -y install python3-pip vim libgl1-mesa-dev libgtk2.0-dev && \
+    apt-get update && apt-get install libgl1\
+    apt install -y python3 python3-pip\
     pip3 install opencv-python
 
 
