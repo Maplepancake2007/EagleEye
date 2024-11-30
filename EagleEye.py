@@ -36,11 +36,11 @@ def main():
           ],
      )
      st.subheader(app_mode)
-     if app_mode == car_detection_page:
+     while app_mode == car_detection_page:
           car_detection()
-     elif app_mode == map_search_page:
+     while app_mode == map_search_page:
           map_search()
-     elif app_mode == infomation_page:
+     while app_mode == infomation_page:
           infomation()
 
 
