@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY requiments.txt .
 
-RUN pip3 install opencv-python\
+RUN apt update &&\
+    apt install opencv-python\
     pip install -r requirements.txt
 
 EXPOSE 8501
