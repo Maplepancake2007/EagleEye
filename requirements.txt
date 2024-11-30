@@ -2,7 +2,6 @@ streamlit_folium
 streamlit-javascript
 streamlit-js-eval
 streamlit-webrtc
-opencv
 ultralytics
 requests
 folium
@@ -11,4 +10,5 @@ pygame
 av
 geojson
 gTTS
+opencv-python
 streamlit-folium
