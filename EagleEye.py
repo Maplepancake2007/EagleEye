@@ -83,7 +83,7 @@ def car_detection():
           key="example",
           async_transform=True,
           media_stream_constraints={"video": True, "audio": False},
-          video_frame_callback=callback
+          video_frame_callback=callback,
           rtc_configuration={  # この設定を足す
              "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
          }
