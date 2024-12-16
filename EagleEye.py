@@ -1,6 +1,6 @@
 from io import BytesIO
 from gtts import gTTS
-import base24
+import base64
 from  streamlit_folium import st_folium
 from folium.plugins import Draw
 import folium
