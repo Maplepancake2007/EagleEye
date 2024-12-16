@@ -9,4 +9,4 @@ ENV POETRY_VIRTUALENVS_IN_PROJECT=false
 
 RUN pip install -r requirements.txt
 
-WORKDIR /srv
+WORKDIR /
