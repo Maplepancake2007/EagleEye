@@ -1,15 +1,16 @@
 from io import BytesIO
 from gtts import gTTS
+import base24
 from  streamlit_folium import st_folium
 from folium.plugins import Draw
 import folium
 import geojson
 from geojson import dump
 import streamlit.components.v1 as stc
-import pyttsx3
 from streamlit.components.v1 import html
 from streamlit_javascript import st_javascript
 from streamlit_js_eval import streamlit_js_eval, copy_to_clipboard, create_share_link, get_geolocation
+import pyttsx3
 import pygame
 import time
 import streamlit as st
@@ -57,20 +58,35 @@ def car_detection():
           for alert in alerts:
                cls = int(alert.boxes.cls)
                if cls == 2:
-                    f = BytesIO()
-                    gTTS(text = "車体を検知しました", lang = "ja").write_to_fp(f)
-                    f.seek(0)
-                    pygame.mixer.init()
-                    pygame.mixer.music.load(f)
-                    pygame.mixer.music.play(1)
-                    time.sleep(5)
+                    audio_path1 = 'sample.wav' #入力する音声ファイル
+                    
+                    audio_placeholder = st.empty()
+                    
+                    file_ = open(audio_path1, "rb")
+                    contents = file_.read()
+                    file_.close()
+                    
+                    audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
+                    audio_html = """
+                                   <audio autoplay=True>
+                                   <source src="%s" type="audio/ogg" autoplay=True>
+                                   Your browser does not support the audio element.
+                                   </audio>
+                              """ %audio_str
+                    
+                    audio_placeholder.empty()
+                    time.sleep(2) #これがないと上手く再生されません
+                    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
                     continue
           time.sleep(2)
      webrtc_streamer(
-     key="example",
-     async_transform=True,
-     media_stream_constraints={"video": True, "audio": False},
-     video_frame_callback=callback
+          key="example",
+          async_transform=True,
+          media_stream_constraints={"video": True, "audio": False},
+          video_frame_callback=callback
+          rtc_configuration={  # この設定を足す
+             "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+         }
      )
 
 
