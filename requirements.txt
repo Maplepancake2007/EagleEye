@@ -1,6 +1,6 @@
 gTTS==2.5.3
 pyttsx3==2.98
-opencv-python-headless==4.10.0.84
+opencv-python-headless
 streamlit==1.36.0
 streamlit-folium==0.22.0
 streamlit-javascript==0.1.5
