@@ -86,7 +86,7 @@ def car_detection():
           media_stream_constraints={"video": True, "audio": False},
           video_frame_callback=callback,
           rtc_configuration={
-             "iceServers": [{"urls": ["stun:stun.l.google.com:5349"]}]
+             "iceServers": [{"urls": ["stun:stun2.l.google.com:19302"]}]
          }
           
      )
