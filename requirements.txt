@@ -2,7 +2,7 @@ gTTS==2.5.3
 pybase64
 pyttsx3==2.98
 opencv-python
-streamlit==1.36.0
+streamlit
 streamlit-folium==0.22.0
 streamlit-javascript==0.1.5
 streamlit_js_eval==0.1.7
