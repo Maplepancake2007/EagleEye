@@ -1,7 +1,7 @@
 from io import BytesIO
 from gtts import gTTS
 import base64
-import cv
+import cv2
 from  streamlit_folium import st_folium
 from folium.plugins import Draw
 import folium
