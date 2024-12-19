@@ -48,10 +48,10 @@ def car_detection():
      model = YOLO("yolov8n.pt")
 
      def callback(frame):
-          
+          img = frame.to_ndarray(format="bgr24")
 
           results = model(
-               frame,
+               img,
                classes=2,
                conf = 0.5
           )
@@ -80,9 +80,16 @@ def car_detection():
                     audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
                     continue
           time.sleep(2)
-     camera = cv2.VideoCapture(0)
-     frame = camera.read()
-     callback(frame)
+     webrtc_streamer(
+          key="example",
+          async_transform=True,
+          media_stream_constraints={"video": True, "audio": False},
+          video_frame_callback=callback,
+          rtc_configuration={
+             "iceServers": [{"urls": ["stun:stun.l.google.com:5349"]}]
+         }
+          
+     )
 
 
 def map_search():
