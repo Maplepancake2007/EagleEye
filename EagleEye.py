@@ -1,6 +1,7 @@
 from io import BytesIO
 from gtts import gTTS
 import base64
+import cv
 from  streamlit_folium import st_folium
 from folium.plugins import Draw
 import folium
@@ -80,17 +81,9 @@ def car_detection():
                     audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
                     continue
           time.sleep(2)
-     webrtc_streamer(
-          key="example",
-          async_transform=True,
-          media_stream_constraints={"video": True, "audio": False},
-          video_frame_callback=callback,
-          rtc_configuration={
-             "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-         }
-          
-     )
-
+     camera = cv2.VideoCapture(0)
+     frame = camera.read()
+     callback(frame)
 
 
 def map_search():
