@@ -48,11 +48,10 @@ def car_detection():
      model = YOLO("yolov8n.pt")
 
      def callback(frame):
-          img = frame.to_ndarray(format = 'bgr24')
           
 
           results = model(
-               img,
+               frame,
                classes=2,
                conf = 0.5
           )
